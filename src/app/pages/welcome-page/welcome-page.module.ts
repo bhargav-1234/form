@@ -7,11 +7,19 @@ import { SharedModule } from "../../shared/shared.module";
 import { WelcomePageComponent } from "./welcome-page.component";
 //-----------------components--------------------------//
 import { LoginComponent } from "src/app/components/login/login.component";
+import { SignupComponent } from "src/app/components/signup/signup.component";
+
 // import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 
-const routes: Routes = [{ path: "", component: WelcomePageComponent }];
+const routes: Routes = [
+  { path: "", component: WelcomePageComponent },
+  {
+    path: "signup",
+    component: SignupComponent
+  }
+];
 @NgModule({
-  declarations: [WelcomePageComponent, LoginComponent],
+  declarations: [WelcomePageComponent, LoginComponent, SignupComponent],
   imports: [
     CommonModule,
     SharedModule,
