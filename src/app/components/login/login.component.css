@@ -5,10 +5,10 @@ img {
   border: 1px solid skyblue;
 }
 h2 {
-  color: white;
+  color: black;
 }
 .mat-card {
-  background-color: rgb(189, 188, 188);
+  background-color: white;
   height: 800px;
   width: 350px;
   transform: translateY(60px);
