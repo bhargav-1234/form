@@ -1,44 +1,58 @@
 <section>
-    <mat-card Align="center">
-        <div fxLayoutAlign="center center" fxLayout="column">
-            <div class="card">
-                <img src="../../../assets/img/df.jpg" alt="dff" />
-            </div>
-            <div>
-                <h2>CREAT AN ACCOUNT</h2>
-                <div class="input">
-                    <mat-form-field appearance="outline">
-                        <mat-label> Name</mat-label>
-                        <input matInput placeholder="Name" />
-                        <mat-icon matSuffix>user</mat-icon>
-                    </mat-form-field>
-                    <mat-form-field appearance="outline">
-                        <mat-label> Email</mat-label>
-                        <input matInput placeholder="Email" />
-                        <mat-icon matSuffix>email</mat-icon>
-                    </mat-form-field>
-                    <mat-form-field appearance="outline">
-                        <mat-label> Password</mat-label>
-                        <input type="password" matInput placeholder="Password" />
-                        <mat-icon matSuffix>lock</mat-icon>
-                    </mat-form-field>
-                    <mat-form-field appearance="outline">
-                        <mat-label> Password(confirm)</mat-label>
-                        <input type="password" matInput placeholder="Password" />
-                        <mat-icon matSuffix>lock</mat-icon>
-                    </mat-form-field>
-                </div>
-                <div fxLayoutAlign="center" fxLayout="row">
-                    <mat-checkbox>I read and accept</mat-checkbox>
-                    <a href="">terms and condition.</a>
-                </div>
-                <button mat-button>CREAT AN ACCOUNT</button>
+  <mat-card Align="center">
+    <div fxLayoutAlign="center center" fxLayout="column">
+      <div class="card">
+        <img src="../../../assets/img/df.jpg" alt="dff" />
+      </div>
 
-            </div>
-            <p>
-                Already have an account?
-            </p>
-            <a href="/">Login</a>
+      <form #signinForm="ngForm" (ngSubmit)="onSubmit()">
+        <h2>CREAT AN ACCOUNT</h2>
+        <div>
+          <mat-form-field appearance="outline">
+            <mat-label> Name</mat-label>
+            <input
+              matInput
+              type="text"
+              [(ngModel)]="signupProfile.name"
+              name="signupProfile"
+              #signupProfile="ngModel"
+              placeholder="Enter Name"
+              required
+            />
+          </mat-form-field>
+          <div *ngIf="!signupProfile.valid && signupProfile.touched">
+            <p class="error">user name is required.</p>
+          </div>
+
+          <mat-form-field appearance="outline">
+            <mat-label> Email</mat-label>
+            <input matInput placeholder="Email" />
+            <mat-icon matSuffix>email</mat-icon>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label> Password</mat-label>
+            <input type="password" matInput placeholder="Password" />
+            <mat-icon matSuffix>lock</mat-icon>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>confirm Password </mat-label>
+            <input type="password" matInput placeholder="Password" />
+            <mat-icon matSuffix>lock</mat-icon>
+          </mat-form-field>
         </div>
-    </mat-card>
+
+        <div fxLayoutAlign="center" fxLayout="row">
+          <mat-checkbox>I read and accept</mat-checkbox>
+          <a href="">terms and condition.</a>
+        </div>
+        <button mat-button type="submit">CREAT AN ACCOUNT</button>
+      </form>
+    </div>
+    <p>
+      Already have an account?
+    </p>
+    <a href="/">Login</a>
+  </mat-card>
 </section>
